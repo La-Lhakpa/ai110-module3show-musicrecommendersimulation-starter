@@ -9,3 +9,14 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
+11,Dust Road Anthem,Harper Vale,country,uplifting,0.68,104,0.72,0.55,0.42
+12,Nocturne in Quiet Light,Elena Voss,classical,serene,0.22,68,0.55,0.28,0.95
+13,Block Party Cipher,Kai Zen,hip hop,playful,0.86,95,0.88,0.84,0.12
+14,Furnace Heart,Obsidian Coil,metal,aggressive,0.96,168,0.32,0.45,0.03
+15,Sunlit Harbor,Soca Breeze,reggae,euphoric,0.72,88,0.90,0.76,0.25
+16,Willow Creek Ballad,The Hollow Pines,folk,nostalgic,0.45,96,0.48,0.52,0.88
+17,Laser Bloom,Nova Grid,edm,dreamy,0.78,128,0.62,0.81,0.08
+18,Calle Luna,Maria Santos,latin,romantic,0.70,112,0.79,0.83,0.20
+19,Midnight Velvet,Solomon Keys,soul,melancholic,0.38,74,0.35,0.48,0.62
+20,Basement Anthem,Rotten Youth,punk,dark,0.88,178,0.41,0.58,0.06
