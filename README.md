@@ -16,7 +16,6 @@ Replace this paragraph with your own summary of what your version does.
 ---
 
 ## How The System Works
-
 Explain your design in plain language.
 
 Some prompts to answer:
@@ -29,7 +28,10 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
----
+--- The system will be working on the basis of scoring and ranking rules. 
+--- My UserProfile will have info's on favorite_genre,favorite_mood,target_energy,likes_acoustic.
+---My Recommender compute a score:weighted sum of (genre match + mood match + energy closeness + acoustic preference), with energy as distance-to-target, and only add tempo/valence/danceability when you have a clear rule or extra profile fields.
+---Score every candidate, sort by score descending, return the top k—and optionally post-process for ties, diversity, or exclusions.
 
 ## Getting Started
 
@@ -161,7 +163,6 @@ You can think about:
 - Situations where the top results "felt right"
 - Particular user profiles it served well
 - Simplicity or transparency benefits
-
 ---
 
 ## 6. Limitations and Bias
