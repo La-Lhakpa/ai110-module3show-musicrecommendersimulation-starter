@@ -26,12 +26,11 @@ Some prompts to answer:
 - How does your `Recommender` compute a score for each song
 - How do you choose which songs to recommend
 
-You can include a simple diagram or bullet list if helpful.
-
 --- The system will be working on the basis of scoring and ranking rules. 
 --- My UserProfile will have info's on favorite_genre,favorite_mood,target_energy,likes_acoustic.
 ---My Recommender compute a score:weighted sum of (genre match + mood match + energy closeness + acoustic preference), with energy as distance-to-target, and only add tempo/valence/danceability when you have a clear rule or extra profile fields.
 ---Score every candidate, sort by score descending, return the top k—and optionally post-process for ties, diversity, or exclusions.
+
 
 ## Getting Started
 
@@ -55,6 +54,10 @@ pip install -r requirements.txt
 ```bash
 python -m src.main
 ```
+
+Sample terminal output (ranked titles, scores, and scoring reasons):
+
+![Terminal output showing top song recommendations with scores and bulleted reasons](docs/terminal-recommendations.png)
 
 ### Running Tests
 
