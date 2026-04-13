@@ -81,8 +81,10 @@ def load_songs(csv_path: str) -> List[Dict]:
     print(f"Loaded songs: {len(songs)}")
     return songs
 
-GENRE_MATCH_POINTS = 2.0
+# Weight experiment: genre halved vs original starter; energy contribution doubled.
+GENRE_MATCH_POINTS = 1.0
 MOOD_MATCH_POINTS = 1.0
+ENERGY_SIMILARITY_WEIGHT = 2.0
 
 
 def _norm_label(label: str) -> str:
@@ -105,8 +107,8 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     """
     Scores a single song against user preferences.
     Returns total score and human-readable reasons (genre, mood, energy).
-    Scoring: +2.0 genre match, +1.0 mood match, plus energy similarity in [0, 1]
-    where similarity = max(0, 1 - |song_energy - target_energy|).
+    Scoring: +GENRE_MATCH_POINTS on genre match, +MOOD_MATCH_POINTS on mood match,
+    plus ENERGY_SIMILARITY_WEIGHT * similarity where similarity = max(0, 1 - |Δenergy|).
     """
     user_genre, user_mood, target_energy = _prefs_genre_mood_energy(user_prefs)
     song_genre = str(song["genre"])
@@ -129,9 +131,11 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
             f'Mood does not match (song is "{song_mood}", you prefer "{user_mood.strip()}")'
         )
     energy_sim = _energy_similarity(song_energy, target_energy)
-    score += energy_sim
+    energy_points = ENERGY_SIMILARITY_WEIGHT * energy_sim
+    score += energy_points
     reasons.append(
-        f"Energy similarity {energy_sim:.2f} (song {song_energy:.2f} vs your target {target_energy:.2f})"
+        f"Energy: similarity {energy_sim:.2f} × weight {ENERGY_SIMILARITY_WEIGHT:.1f} "
+        f"= +{energy_points:.2f} (song {song_energy:.2f} vs target {target_energy:.2f})"
     )
     return score, reasons
 

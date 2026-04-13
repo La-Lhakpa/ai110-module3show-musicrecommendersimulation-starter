@@ -63,27 +63,21 @@ Prompts:
 
 Where the system struggles or behaves unfairly. 
 
-Prompts:  
-
-- Features it does not consider  
-- Genres or moods that are underrepresented  
-- Cases where the system overfits to one preference  
-- Ways the scoring might unintentionally favor some users  
+During the weight experiment, I saw that doubling energy and halving genre changed who ranked near the top: tracks that matched mood and energy could beat ones that matched genre but not mood, so the list was very sensitive to those knobs even though nothing in the data proved one weighting was “right.” I also noticed that exact genre labels matter a lot—“indie pop” does not count as “pop”—so users who describe taste in everyday language can get recommendations that look misaligned even when the songs feel close. Together, that showed me the system is transparent but brittle: small rule changes and strict string matching can swing results without reflecting deeper understanding of music or listeners.
 
 ---
 
 ## 7. Evaluation  
+I tested four made-up listeners against the full catalog (`data/songs.csv`) using the same scoring code each time:
+-- **Happy Pop** — wants pop, a happy mood, and medium-high energy (around 0.8), similar to the default run in `main.py`.  
+-- **High-Energy Pop** — still pop, but asks for an intense mood and very high energy (around 0.92).  
+-- **Chill Lofi** — wants lofi, a chill mood, and low energy (around 0.38).  
+-- **Deep Intense Rock** — wants rock, an intense mood, and high energy (around 0.91).  
+  For each profile I printed the **top five** songs and read the built-in reasons (genre match, mood match, energy similarity). I also compared pairs of profiles side by side to see whether the list **actually changed** when the preferences changed, and whether that change matched what the numbers were supposed to reward.
 
-How you checked whether the recommender behaved as expected. 
+--What surprised me: Gym Hero can rank high for “Happy Pop” just from pop + energy without a happy mood match, and intense high-energy profiles overlapped a lot; Chill Lofi did not surprise me.
 
-Prompts:  
 
-- Which user profiles you tested  
-- What you looked for in the recommendations  
-- What surprised you  
-- Any simple tests or comparisons you ran  
-
-No need for numeric metrics unless you created some.
 
 ---
 

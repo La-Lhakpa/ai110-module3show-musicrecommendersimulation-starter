@@ -55,9 +55,15 @@ pip install -r requirements.txt
 python -m src.main
 ```
 
-Sample terminal output (ranked titles, scores, and scoring reasons):
+### Screenshots
+
+Sample terminal output from `python -m src.main` (ranked titles, scores, and scoring reasons):
 
 ![Terminal output showing top song recommendations with scores and bulleted reasons](docs/terminal-recommendations.png)
+
+Top 5 recommendations for three example profiles (High-Energy Pop, Chill Lofi, Deep Intense Rock):
+
+![Terminal output showing top five songs per profile with scores](docs/terminal-three-profiles.png)
 
 ### Running Tests
 
